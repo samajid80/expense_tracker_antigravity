@@ -4,6 +4,7 @@ import React from "react";
 import { useExpenses } from "@/context/ExpenseContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DollarSign, Calendar, TrendingUp } from "lucide-react";
+import { format } from "date-fns";
 
 export function SummaryCards() {
     const { expenses } = useExpenses();
@@ -42,7 +43,7 @@ export function SummaryCards() {
                 <CardContent>
                     <div className="text-2xl font-bold">${monthlyExpenses.toFixed(2)}</div>
                     <p className="text-xs text-muted-foreground">
-                        {new Date().toLocaleString('default', { month: 'long' })} expenses
+                        {format(new Date(), "MMMM")} expenses
                     </p>
                 </CardContent>
             </Card>
